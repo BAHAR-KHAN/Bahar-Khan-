@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAHAR KHAN Portfolio-Procoder09</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+        (function(){
+          emailjs.init("slsh_fhswIrI6_I5w"); // ✅ your public EmailJS user ID
+        })();
+      
+        document.addEventListener("DOMContentLoaded", function () {
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+      
+            emailjs.sendForm('service_9j3lcu9', 'template_w97mlmc', this)
+              .then(function() {
+                alert('Message sent successfully!');
+              }, function(error) {
+                alert('Failed to send message: ' + JSON.stringify(error));   
+              });
+          });
+        });
+      </script>
+      
+</head>
+<body>
+
+
+    <header>
+        <a href="" class="brand" data-aos="zoom-in" data-aos-duration="1000">Bahar Khan</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <a href="#main" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Home</a>
+            <a href="#about"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">About</a>
+            <a href="#skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Skills</a>
+            <a href="#services" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Education</a>
+            <a href="#Projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">Experience</a>
+            <a href="#Contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Contact</a>
+            <a href="#Experience" data-aos="fade-up" data-aos-duration="1000" data-aos-delay=""></a>
+        </div>
+        <style>
+            /* Modern Minimalist Style */
+            :root {
+                --primary: #4361ee;
+                --secondary: #3f37c9;
+                --accent: #4895ef;
+                --dark: #2b2d42;
+                --light: #f8f9fa;
+                --success: #4cc9f0;
+                --info: #560bad;
+                --warning: #af2463;
+                --danger: #835c7d;
+                --card-bg: #ffffff;
+            }
+            
+            body {
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+                background-color: #f5f7fa;
+                line-height: 1.6;
+            }
+            
+            /* Skills Section */
+            #skills {
+                padding: 60px 0;
+                position: relative;
+            }
+            
+            /* Header */
+            .skills-header {
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .skills-header .title-front {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: var(--dark);
+                position: relative;
+                display: inline-block;
+                padding-bottom: 10px;
+            }
+            
+            .skills-header .title-front::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, var(--primary), var(--accent));
+                border-radius: 3px;
+            }
+            
+            /* Two Column Layout */
+            .skills-container {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            /* Skill Card */
+            .skill-card {
+                background: var(--card-bg);
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+                border-left: 3px solid var(--primary);
+                transition: all 0.3s ease;
+                height: 100%;
+            }
+            
+            .skill-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            
+            .skill-name {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            
+            .skill-name span:first-child {
+                font-weight: 700; /* Made skill names bold */
+                color: var(--dark);
+                font-size: 1.1rem;
+            }
+            
+            .skill-percent {
+                font-weight: 700;
+                font-size: 0.9rem;
+                color: var(--dark);
+            }
+            
+            /* Thin Progress Bar */
+            .progress-container {
+                height: 6px;
+                border-radius: 3px;
+                background-color: rgba(0,0,0,0.05);
+                overflow: hidden;
+            }
+            
+            .progress-bar {
+                height: 100%;
+                border-radius: 3px;
+                position: relative;
+                transition: width 0.4s ease;
+                width: 0;
+            }
+            
+            /* Color Variants */
+            .bg-primary { background-color: var(--primary); }
+            .bg-secondary { background-color: var(--secondary); }
+            .bg-success { background-color: var(--success); }
+            .bg-info { background-color: var(--info); }
+            .bg-warning { background-color: var(--warning); }
+            .bg-danger { background-color: var(--danger); }
+            .bg-dark { background-color: var(--dark); }
+            .bg-pink { background-color: #e83e8c; }
+            .bg-purple { background-color: #6f42c1; }
+            
+            /* Responsive Adjustments */
+            @media (max-width: 768px) {
+                #skills {
+                    padding: 40px 0;
+                }
+                
+                .skills-header .title-front {
+                    font-size: 1.8rem;
+                }
+                
+                .skill-card {
+                    padding: 15px;
+                }
+                
+                /* Switch to single column on mobile */
+                .col-md-6 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+        </style>
+    </header>
+
+    <section class="main" id="main">
+        <div class="content">
+            <h2 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">Hey, This'is <br><span>Bahar Khan</span></h2>
+            <div class="animated-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="900">
+                <h3>Sales Representative</h3>
+                <h3>Business Development Representative </h3>
+                <h3>Marketing Strategy</h3>
+                <h3>Account Executive</h3>
+                <h3>International Business Development</h3>
+                <h3>International Market Representative</h3>
+            </div>
+           
+            <div class="media-icons">
+                <a href="https://www.facebook.com/share/1BP17Q6sgA/" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1200"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/bahar_ali_khan_143?igsh=MWgxeHZvazA2aWc5Nw" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1300"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/baharkhan143" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1400"><i class="fab fa-linkedin"></i></a>
+                <!--<a href="https://telegram.org/dl"><i class="fab fa-telegram"></i></a> -->
+                <a href="https://github.com/BAHAR-KHAN" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1500"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+<!--  About Section -->
+
+    <section class="about" id="about">
+        <div class="title reveal">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Who I'am</h2>
+        </div>
+        <div class="content">
+            <div class="column col-left reveal">
+                <div class="img-card" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200">
+                    <img src="./897.jpg" alt="">
+                </div>
+            </div>
+            <div class="column col-right reveal">
+                <h2 class="content-title" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">Hey There !This'is Bahar Khan</h2>
+                <p class="paragraph-text" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="400"><h2>Experienced International Sales Reprsentative with a strong background in export markets client management,and business growth</h2>
+
+                    Hey there! This'is Bahar Khan,I am an experienced International Sales Representative specializing in building and maintaining strong global client relationships, driving market expansion, and achieving sustainable revenue growth across diverse regions.</p>
+                    <br>I am a Business Development Professional with strong expertise in identifying new market opportunities, building strategic partnerships, and driving sustainable growth across international markets.Experienced in developing and executing data-driven marketing strategies that enhance brand visibility, attract global clients, and drive sustainable business growth.Specializing in creating innovative marketing strategies that align with business goals, strengthen brand positioning, and deliver measurable results across international markets.</p>
+                <a href="#" class="btn" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="600">See more</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Skill Section -->
+<div id="skills">
+    <div class="container">
+        <div class="skills-header">
+            <h1 class="title-front">My Skills</h1>
+        </div>
+        
+        <div class="skills-container">
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Marketing Strategy</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Sales Representative</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- First Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Sales Marketing</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>business Development</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- First Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Business Excutive Development</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Management</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- First Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>Translation</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>CSS</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- First Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>HTML</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-name">
+                            <span>GitHub</span>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const skillCards = document.querySelectorAll('#skills .skill-card');
+        
+        function animateProgressBar(card) {
+            const progressBar = card.querySelector('.progress-bar');
+            const percentElement = card.querySelector('.skill-percent');
+            const targetWidth = progressBar.getAttribute('aria-valuenow');
+            let currentWidth = 0;
+            
+            const animationInterval = setInterval(() => {
+                if (currentWidth >= targetWidth) {
+                    clearInterval(animationInterval);
+                } else {
+                    currentWidth++;
+                    progressBar.style.width = currentWidth + '%';
+                    percentElement.textContent = currentWidth + '%';
+                }
+            }, 20);
+        }
+        
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) * 1.1 &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        function handleScroll() {
+            skillCards.forEach(card => {
+                if (isInViewport(card)) {
+                    if (!card.classList.contains('animated')) {
+                        card.classList.add('animated');
+                        animateProgressBar(card);
+                    }
+                }
+            });
+        }
+        
+        // Initial check
+        handleScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', handleScroll);
+    });
+</script>
+
+   <!-- // Services Section -->
+
+    <!-- <section class="services" id="services">
+        <div class="title">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">My Education</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="content">
+            <div class="card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="info">
+                    <h3>Web Design</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <div class="info">
+                    <h3>Motion Graphic Design</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-file-code"></i>
+                </div>
+                <div class="info">
+                    <h3>Web Development</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+ <!-- Education Section -->
+
+<section class="services" id="services">
+    <div class="title">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">My Education</h2>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            Here is a brief overview of my academic background, including my journey from school to university,and university to business.
+        </p>
+    </div>
+    <div class="content">
+        <div class="card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+            <div class="service-icon">
+                <i class="fas fa-school"></i>
+            </div>
+            <div class="info">
+                <h3>Matriculation</h3>
+                <p>(BSC Hons) in Engineering </p>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <div class="service-icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <div class="info">
+                <h3>FSc (Intermediate)</h3>
+                <p>Bachelor of Science in Engineering Mardan College.</p>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+            <div class="service-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="info">
+                <h3>BS Civil Engineering</h3>
+                <p>Euroupean University of Lefke/ Cyprus.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Section -->
+    <section class="work" id="Projects">
+        <div class="title">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">My Experience</h2>
+        </div>
+        <div class="content">
+            <div class="card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="./WhatsApp Image 2024-05-27 at 14.29.44 (11).jpeg" alt="">
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="./WhatsApp Image 2024-05-31 at 14.42.35 (3).jpeg" alt="">
+                </div>
+            </div>
+            <div class="card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="./WhatsApp Image 2024-05-29 at 20.15.21.jpeg" alt="">
+                </div>
+            </div>
+            <div class="card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                <div class="card-img">
+                    <img src="./hhhhhh.jpeg" alt="">
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="card-img">
+                    <img src="./h (2).jpeg" alt="">
+                </div>
+            </div>
+            <div class="card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                <div class="card-img">
+                    <img src="./jjjj.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="contact" id="Contact">
+        <div class="title reveal">
+          <h2 class="section-title">Contact Me</h2>
+        </div>
+        <div class="content">
+          <div class="row">
+            <div class="card reveal">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info">
+                <h3>Address</h3>
+                <span>Turkey/Sanliurfa</span>
+              </div>
+            </div>
+            <div class="card reveal">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info">
+                <h3>Phone</h3>
+                <span>+905516471818</span>
+              </div>
+            </div>
+            <div class="card reveal">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info">
+                <h3>Email Address</h3>
+                <span>baharkhan143143@gmail.com</span>
+              </div>
+            </div>
+            <div class="card reveal">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+             
+            </div>
+          </div>
+        
+          <!-- <div class="contact-form">
+            <h3>Send Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <input type="text" name="from_name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="reply_to" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Message" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="send-btn">Send Message</button>
+            </form>
+          </div>
+          
+        
+          
+          <style>
+            .contact-form {
+              max-width: 500px;
+              margin: 0 auto;
+              padding: 20px;
+              font-family: Arial, sans-serif;
+            }
+            
+            .contact-form h3 {
+              text-align: center;
+              margin-bottom: 20px;
+              color: #333;
+            }
+            
+            .form-group {
+              margin-bottom: 15px;
+            }
+            
+            .contact-form input,
+            .contact-form textarea {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-size: 16px;
+            }
+            
+            .contact-form textarea {
+              min-height: 120px;
+              resize: vertical;
+            }
+            
+            .send-btn {
+              width: 100%;
+              padding: 12px;
+              background-color: #4361ee;
+              color: white;
+              border: none;
+              border-radius: 4px;
+              font-size: 16px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            }
+            
+            .send-btn:hover {
+              background-color: #3a56d4;
+            }
+          </style> -->
+          <div class="contact-form">
+            <h3>Send Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <input type="text" name="from_name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="reply_to" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Message" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="send-btn">Send Message</button>
+            </form>
+          </div>
+          
+          <style>
+            .contact-form {
+              max-width: 500px;
+              margin: 0 auto;
+              padding: 30px;
+              background-color: #ffffff;
+              border-radius: 10px;
+              box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+              font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            }
+            
+            .contact-form h3 {
+              text-align: center;
+              margin-bottom: 25px;
+              color: var(--dark);
+              font-size: 1.8rem;
+              font-weight: 600;
+              position: relative;
+              padding-bottom: 12px;
+            }
+            
+            .contact-form h3::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 50px;
+              height: 3px;
+              background: linear-gradient(90deg, var(--primary), var(--accent));
+              border-radius: 3px;
+            }
+            
+            .form-group {
+              margin-bottom: 20px;
+              position: relative;
+            }
+            
+            .contact-form input,
+            .contact-form textarea {
+              width: 100%;
+              padding: 14px 16px;
+              border: 1px solid #e0e0e0;
+              border-radius: 6px;
+              font-size: 16px;
+              transition: all 0.3s ease;
+              background-color: #f9f9f9;
+              color: #333;
+            }
+            
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+              outline: none;
+              border-color: var(--primary);
+              box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+              background-color: #fff;
+            }
+            
+            .contact-form textarea {
+              min-height: 140px;
+              resize: vertical;
+            }
+            
+            .send-btn {
+              width: 100%;
+              padding: 14px;
+              background: linear-gradient(135deg, var(--primary), var(--secondary));
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 16px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            
+            .send-btn:hover {
+              background: linear-gradient(135deg, var(--secondary), var(--primary));
+              transform: translateY(-2px);
+              box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+            }
+            
+            .send-btn:active {
+              transform: translateY(0);
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 576px) {
+              .contact-form {
+                padding: 20px;
+              }
+              
+              .contact-form h3 {
+                font-size: 1.5rem;
+              }
+              
+              .contact-form input,
+              .contact-form textarea {
+                padding: 12px 14px;
+              }
+            }
+          </style>
+        </div>
+      </section>
+  
+      <footer class="footer">
+        <span class="footer-title">Jacob Stevens</span>
+        <p>Copyright @2025 <a href="#">Coding Bahar Khan</a>. All Rights Reserved.</p>
+      </footer>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script>
+
+        window.addEventListener("scroll", function(){
+    scrollBtn.classList.toggle("active", window.scrollY > 500);
+});
+
+//javascript for scroll back to top on click scroll-to-top button
+
+// document.querySelector(".scrollToTop-btn").addEventListener("click", () => {
+//   document.body.scrollTop = 0;
+//   document.documentElement.scrollTop = 0;
+// });
+
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        const navigationItems = document.querySelector(".navigation a");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        })
+
+        // Navigation Effects
+        window.addEventListener("scroll", function(){
+            const header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+        navigationItems.forEach((navigationItem) => {
+            navigationItem.addEventListener("click", () => {
+                menuBtn.classList.remove("active");
+                navigation.classList.remove("active")
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>
